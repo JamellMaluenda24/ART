@@ -1,0 +1,40 @@
+                                                 Instalar PyQt5
+--------------------------------------------------------------------------------------------------------------
+Paso 1 
+---------------------
+1.-abrir terminal en visual studio code y luego ingresar siguiente comando:
+pip install PyQt5
+
+Paso 2
+------
+Ejecutar desde main.py
+
+                                                  Conectar base de datos
+------------------------------------------------------------------------------------------
+1)video de referencia de como instalar la base de datos: https://www.youtube.com/watch?v=EmQZt6o6-78
+2)video de referencia de como prender la base de datos(una vez se vuelva a prender el pc):  https://www.youtube.com/watch?v=0Qewes4YXHU
+paso 1
+------
+ir a este link de descargas
+https://www.mysql.com/downloads/
+
+paso 2
+------
+Ir a esta sección llamada "MySQL Community (GPL) Downloads »"
+
+paso 3
+------
+descargar MySQL Community Server y MySQL Workbench(grafico), seguir los pasos de instalación
+
+paso 4
+------
+ir al IDE y ejecutar una terminal con la siguiente
+pip install mysql-connector-python
+
+                                                  Para encriptar claves en hashing
+------------------------------------------------------------------------------------------
+pip install bcrypt
+
+                                                  Por ultimo configurar la base de datos del software
+------------------------------------------------------------------------------------------
+ir al archivo pyhton "db_conection" y ajustar los parametros

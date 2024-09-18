@@ -1,0 +1,54 @@
+-- Tabla Administrador
+CREATE TABLE administrador (
+    rut VARCHAR(20) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    contrasena_hash VARCHAR(255) NOT NULL  
+);
+
+-- Tabla Trabajador
+CREATE TABLE trabajador (
+    rut VARCHAR(20) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    contrasena_hash VARCHAR(255) NOT NULL
+);
+
+-- Tabla Supervisor
+CREATE TABLE supervisor (
+    rut VARCHAR(20) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    contrasena_hash VARCHAR(255) NOT NULL 
+);
+
+-- Tabla ART Trabajador
+CREATE TABLE art_trabajador (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    trabajador_rut VARCHAR(20),
+    supervisor VARCHAR(20) NULL, -- Permitir NULL para el supervisor
+    empresa VARCHAR(255),
+    gerencia VARCHAR(255),
+    fecha DATE,
+    hora_inicio TIME,
+    hora_termino TIME,
+    superintendencia VARCHAR(255),
+    trabajo_realizar TEXT,
+    estado VARCHAR(20), -- Sin valor por defecto
+    FOREIGN KEY (trabajador_rut) REFERENCES trabajador(rut)
+);
+
+-- Tabla Respuestas
+CREATE TABLE respuesta_art (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    art_id INT,
+    tipo_respuesta ENUM('trabajador', 'supervisor'), -- Añadir tipo de respuesta
+    paso INT,
+    numero_pregunta VARCHAR(30), -- tipo de pregunta(SUP-XX,TR-XX, riesgos, medidas de control)
+    respuesta_texto TEXT,
+    respuesta_seleccion ENUM('si', 'no'),
+    FOREIGN KEY (art_id) REFERENCES art_trabajador(id)
+);
